@@ -13,7 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('trains', function (Blueprint $table) {
+            $table->id();
+            $table->string('firm', 50);
+            $table->string('departure_station', 50);
+            $table->string('arrival_station', 30);
+            $table->dateTime('departure_time');
+            $table->dateTime('arrival_time');
+            $table->char('train_identifier', 15);
+            $table->unsignedTinyInteger('coach_num');
+            $table->boolean('in_time');
+            $table->boolean('cancelled');
+            $table->timestamps();
+        });
     }
 
     /**
